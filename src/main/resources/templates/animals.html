@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Djur i parken</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+<body class="text-center">
+    <div class="container">
+        <h1 class="animals">Djur i parken</h1>
+        <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+                <th>Namn</th>
+                <th>Typ av djur</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="animal : ${animals}">
+                <td th:text="${animal.name}"></td>
+                <td th:text="${animal.type}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-dark" th:href="@{index}">Tillbaka till Startsidan</a>
+
+    </div>
+
+</body>
+</html>

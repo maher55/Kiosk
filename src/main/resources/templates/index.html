@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Startsida</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+<body class="text-center">
+
+    <div class="container">
+        <h1>Välkommen till Lenas Zoo!</h1>
+
+        <a class="btn btn-outline-primary" th:href="@{animals}">Djur i parken</a>
+        <a class="btn btn-outline-primary" th:href="@{employees}">Anställda</a>
+        <a class="btn btn-outline-primary" th:href="@{visitors}">Besökare</a>
+        <a class="btn btn-outline-primary" th:href="@{feed}">Djurfoder</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Djurfoder</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+<body class="text-center">
+    <h1>Djurfoder!</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Typ av djurmat</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="feed : ${feedlist}">
+            <td th:text="${feed.type}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{index}">Tillbaka till Startsidan</a>
+
+</body>
+</html>
