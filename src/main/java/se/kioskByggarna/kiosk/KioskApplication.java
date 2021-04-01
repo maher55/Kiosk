@@ -1,13 +1,13 @@
-package se.stridsberg.lenaszoo;
+package se.kioskByggarna.kiosk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LenasZooApplication {
+public class KioskApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LenasZooApplication.class, args);
+        SpringApplication.run(KioskApplication.class, args);
     }
 
 }

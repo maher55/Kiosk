@@ -1,7 +1,7 @@
-package se.stridsberg.lenaszoo.dao;
+package se.kioskByggarna.kiosk.dao;
 
 import org.springframework.stereotype.Repository;
-import se.stridsberg.lenaszoo.models.Animal;
+import se.kioskByggarna.kiosk.models.Animal;
 
 import java.util.ArrayList;
 import java.util.List;

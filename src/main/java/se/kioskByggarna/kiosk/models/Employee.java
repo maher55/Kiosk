@@ -1,4 +1,4 @@
-package se.stridsberg.lenaszoo.models;
+package se.kioskByggarna.kiosk.models;
 
 public class Employee {
 

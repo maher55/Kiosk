@@ -1,9 +1,9 @@
-package se.stridsberg.lenaszoo.api;
+package se.kioskByggarna.kiosk.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import se.stridsberg.lenaszoo.models.Animal;
-import se.stridsberg.lenaszoo.services.AnimalService;
+import se.kioskByggarna.kiosk.models.Animal;
+import se.kioskByggarna.kiosk.services.AnimalService;
 
 import java.util.List;
 import java.util.UUID;

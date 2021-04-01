@@ -1,8 +1,7 @@
-package se.stridsberg.lenaszoo.services;
+package se.kioskByggarna.kiosk.services;
 
 import org.springframework.stereotype.Service;
-import se.stridsberg.lenaszoo.models.Employee;
-import se.stridsberg.lenaszoo.models.Feed;
+import se.kioskByggarna.kiosk.models.Feed;
 
 import java.util.ArrayList;
 import java.util.List;

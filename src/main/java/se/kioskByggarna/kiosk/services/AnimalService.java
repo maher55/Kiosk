@@ -1,9 +1,9 @@
-package se.stridsberg.lenaszoo.services;
+package se.kioskByggarna.kiosk.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import se.stridsberg.lenaszoo.dao.AnimalDAO;
-import se.stridsberg.lenaszoo.models.Animal;
+import se.kioskByggarna.kiosk.models.Animal;
+import se.kioskByggarna.kiosk.dao.AnimalDAO;
 
 import java.util.ArrayList;
 import java.util.List;

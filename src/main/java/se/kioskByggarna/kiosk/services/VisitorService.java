@@ -1,7 +1,7 @@
-package se.stridsberg.lenaszoo.services;
+package se.kioskByggarna.kiosk.services;
 
 import org.springframework.stereotype.Service;
-import se.stridsberg.lenaszoo.models.Visitor;
+import se.kioskByggarna.kiosk.models.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,13 @@
-package se.stridsberg.lenaszoo.controllers;
+package se.kioskByggarna.kiosk.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import se.stridsberg.lenaszoo.services.AnimalService;
-import se.stridsberg.lenaszoo.services.EmployeeService;
-import se.stridsberg.lenaszoo.services.FeedService;
-import se.stridsberg.lenaszoo.services.VisitorService;
+import se.kioskByggarna.kiosk.services.FeedService;
+import se.kioskByggarna.kiosk.services.VisitorService;
+import se.kioskByggarna.kiosk.services.AnimalService;
+import se.kioskByggarna.kiosk.services.EmployeeService;
 
 @Controller
 public class ZooController {
@@ -38,18 +38,18 @@ public class ZooController {
     @RequestMapping("employees")
     public String showEmployees(Model model) {
         model.addAttribute("employees", employeeService.getEmployees());
-        return "employees";
+        return "contact";
     }
 
     @RequestMapping("feed")
     public String showFeed(Model model) {
         model.addAttribute("feedlist", feedService.getFeed());
-        return "feed";
+        return "shoppingHistory";
     }
 
     @RequestMapping("visitors")
     public String showVisitors(Model model) {
         model.addAttribute("visitors", visitorService.getVisitors());
-        return "visitors";
+        return "myPages";
     }
 }

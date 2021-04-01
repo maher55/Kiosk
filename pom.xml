@@ -8,11 +8,11 @@
         <version>2.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>se.stridsberg</groupId>
-    <artifactId>lenas-zoo</artifactId>
+    <groupId>se.kioskByggarna</groupId>
+    <artifactId>kiosken</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lenas-zoo</name>
-    <description>The beginning of Lenas Zoo</description>
+    <name>kiosken</name>
+    <description>An online store with physical pick-up.</description>
     <properties>
         <java.version>11</java.version>
     </properties>
