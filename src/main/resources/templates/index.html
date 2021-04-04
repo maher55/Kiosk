@@ -13,11 +13,13 @@
 </head>
 <body class="text-center">
 
-    <div class="container">
-        <a class="btn btn-outline-primary" th:href="@{animals}">Handla</a>
-        <a class="btn btn-outline-primary" th:href="@{employees}">Mina Sidor</a>
-        <a class="btn btn-outline-primary" th:href="@{visitors}">Köphistorik</a>
-        <a class="btn btn-outline-primary" th:href="@{feed}">Kontakt</a>
+    <div class="top-nav">
+        <a class="btn btn-outline-primary" th:href="@{index}">Handla</a>
+        <a class="btn btn-outline-primary" th:href="@{myPages}">Mina Sidor</a>
+        <a class="btn btn-outline-primary" th:href="@{shoppingHistory}">Köphistorik</a>
+        <a class="btn btn-outline-primary" th:href="@{contact}">Kontakt</a>
+        <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
+        <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
     </div>
 
 </body>

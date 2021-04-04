@@ -2,14 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Anställda</title>
+    <title>Kontakt</title>
 
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/custom.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body class="text-center">
     <h1>Anställda på Lenas Zoo!</h1>
-
+    <div class="container">
+        <a class="btn btn-outline-primary" th:href="@{index}">Handla</a>
+        <a class="btn btn-outline-primary" th:href="@{myPages}">Mina Sidor</a>
+        <a class="btn btn-outline-primary" th:href="@{shoppingHistory}">Köphistorik</a>
+        <a class="btn btn-outline-primary" th:href="@{contact}">Kontakt</a>
+        <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
+        <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
+    </div>
     <table class="table">
         <thead>
         <tr>
@@ -18,10 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="employee : ${employees}">
-            <td th:text="${employee.name}"></td>
-            <td th:text="${employee.role}"></td>
-        </tr>
+
         </tbody>
     </table>
 

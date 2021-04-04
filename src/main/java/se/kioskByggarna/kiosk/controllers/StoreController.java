@@ -10,7 +10,7 @@ import se.kioskByggarna.kiosk.services.AnimalService;
 import se.kioskByggarna.kiosk.services.EmployeeService;
 
 @Controller
-public class ZooController {
+public class StoreController {
 
     @Autowired
     AnimalService animalService;
@@ -29,27 +29,27 @@ public class ZooController {
         return "index";
     }
 
-    @RequestMapping("animals")
+    @RequestMapping("contact")
     public String showAnimals(Model model) {
         model.addAttribute("animals", animalService.getAllAnimals());
-        return "animals";
-    }
-
-    @RequestMapping("employees")
-    public String showEmployees(Model model) {
-        model.addAttribute("employees", employeeService.getEmployees());
         return "contact";
     }
 
-    @RequestMapping("feed")
+    @RequestMapping("myPages")
+    public String showEmployees(Model model) {
+        model.addAttribute("employees", employeeService.getEmployees());
+        return "myPages";
+    }
+
+    @RequestMapping("shoppingHistory")
     public String showFeed(Model model) {
         model.addAttribute("feedlist", feedService.getFeed());
         return "shoppingHistory";
     }
-
+/*
     @RequestMapping("visitors")
     public String showVisitors(Model model) {
         model.addAttribute("visitors", visitorService.getVisitors());
         return "myPages";
-    }
+    }*/
 }
