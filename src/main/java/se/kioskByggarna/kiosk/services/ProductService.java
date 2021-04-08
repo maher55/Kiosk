@@ -12,23 +12,23 @@ public class ProductService {
     public List<Product> getProducts(){
         List<Product> productList = new ArrayList<>();
         productList.add(new Product("Banan",
-                ProductType.FRUIT, Double.valueOf("9.99"),
+                ProductType.FRUIT, "9.99", "SEK",
                 "/images/banana.jpg",
                 "Try one. It's great!"));
         productList.add(new Product("Potatis",
-                ProductType.VEGETABLE, Double.valueOf("4.00"),
+                ProductType.VEGETABLE, "4.00", "SEK",
                 "/images/potatoe.jpg",
                 "Try one. It's great!"));
         productList.add(new Product("Croissant",
-                ProductType.PANTRY, Double.valueOf("12.00"),
+                ProductType.PANTRY, "12.00", "SEK",
                 "/images/croissant.jpg",
                 "Try one. It's great!"));
         productList.add(new Product("Camembert",
-                ProductType.DAIRY, Double.valueOf("79.45"),
+                ProductType.DAIRY, "79.45", "SEK",
                 "/images/camembert.jpg",
                 "Try one. It's great!"));
         productList.add(new Product("Lax",
-                ProductType.FISH, Double.valueOf("65.00"),
+                ProductType.FISH, "65.00", "SEK",
                 "/images/salmon.jpg",
                 "Try one. It's great!"));
         return productList;

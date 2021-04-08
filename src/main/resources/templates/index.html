@@ -6,39 +6,42 @@
 
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body class="text-center">
 
-    <div class="top-nav">
-        <a class="btn btn-outline-primary" th:href="@{index}">Handla</a>
-        <a class="btn btn-outline-primary" th:href="@{myPages}">Mina Sidor</a>
-        <a class="btn btn-outline-primary" th:href="@{shoppingHistory}">Köphistorik</a>
-        <a class="btn btn-outline-primary" th:href="@{contact}">Kontakt</a>
-        <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
-        <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
-    </div>
+<div class="top-nav">
+    <a class="btn btn-outline-primary" th:href="@{index}">Handla</a>
+    <a class="btn btn-outline-primary" th:href="@{myPages}">Mina Sidor</a>
+    <a class="btn btn-outline-primary" th:href="@{shoppingHistory}">Köphistorik</a>
+    <a class="btn btn-outline-primary" th:href="@{contact}">Kontakt</a>
+    <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
+    <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
+</div>
+<div class="page-content-container">
     <div class="products-browser">
 
         <div class="product-listitem-medium" th:each="product : ${products}">
-            <img th:class="product-img-small" th:src="@{${product.img}}" />
+            <img th:class="product-img-small" th:src="@{${product.img}}"/>
             <tbody>
             <table>
                 <tr>
-                    <td> Vara: </td>
+                    <td> Vara:</td>
                     <td th:text="${product.name}"></td>
                 </tr>
                 <tr>
-                    <td> Pris: </td>
-                    <td th:text="${product.price}"> kr</td>
+                    <td> Pris:</td>
+                    <td th:text="${product.price + ' ' + product.currency}"> </td>
                 </tr>
             </table>
             </tbody>
-            <p>Beskrivning: </p><p th:text="${product.description}"> </p>
+            <p>Beskrivning: </p>
+            <p th:text="${product.description}"></p>
         </div>
     </div>
+</div>
 </body>
 </html>
