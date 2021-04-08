@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import se.kioskByggarna.kiosk.services.FeedService;
-import se.kioskByggarna.kiosk.services.VisitorService;
-import se.kioskByggarna.kiosk.services.AnimalService;
-import se.kioskByggarna.kiosk.services.EmployeeService;
+import se.kioskByggarna.kiosk.services.*;
 
 @Controller
 public class StoreController {
@@ -24,32 +21,30 @@ public class StoreController {
     @Autowired
     FeedService feedService;
 
+    @Autowired
+    ProductService productService;
+
     @RequestMapping("/index")
-    public String start() {
+    public String start(Model model) {
+        model.addAttribute("products", productService.getProducts());
         return "index";
     }
 
-    @RequestMapping("contact")
+    @RequestMapping("/contact")
     public String showAnimals(Model model) {
         model.addAttribute("animals", animalService.getAllAnimals());
         return "contact";
     }
 
-    @RequestMapping("myPages")
+    @RequestMapping("/myPages")
     public String showEmployees(Model model) {
         model.addAttribute("employees", employeeService.getEmployees());
         return "myPages";
     }
 
-    @RequestMapping("shoppingHistory")
+    @RequestMapping("/shoppingHistory")
     public String showFeed(Model model) {
         model.addAttribute("feedlist", feedService.getFeed());
         return "shoppingHistory";
     }
-/*
-    @RequestMapping("visitors")
-    public String showVisitors(Model model) {
-        model.addAttribute("visitors", visitorService.getVisitors());
-        return "myPages";
-    }*/
 }
