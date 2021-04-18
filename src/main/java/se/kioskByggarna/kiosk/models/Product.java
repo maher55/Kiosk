@@ -10,55 +10,37 @@ public class Product {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getImg() {
         return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public ProductType getType() {
         return type;
     }
 
-    public void setType(ProductType type) {
-        this.type = type;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public Integer getId() {
+        return id;
     }
-    public Product(    @JsonProperty("name") String name,
-                       @JsonProperty("type") ProductType type,
-                       @JsonProperty("price") String price,
-                       @JsonProperty("currency") String currency,
-                       @JsonProperty("img") String img,
-                       @JsonProperty("description") String description) {
+    public Product(@JsonProperty("id") Integer id,
+                   @JsonProperty("name") String name,
+                   @JsonProperty("type") ProductType type,
+                   @JsonProperty("price") String price,
+                   @JsonProperty("currency") String currency,
+                   @JsonProperty("img") String img,
+                   @JsonProperty("description") String description) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
@@ -67,6 +49,8 @@ public class Product {
         this.description = description;
     }
 
+
+    private Integer id;
     private String name;
     private ProductType type;
     private String price;

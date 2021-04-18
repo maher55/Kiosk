@@ -3,48 +3,47 @@ package se.kioskByggarna.kiosk.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import se.kioskByggarna.kiosk.services.*;
 
+import java.util.ArrayList;
+
 @Controller
 public class StoreController {
-
-    @Autowired
-    AnimalService animalService;
-
-    @Autowired
-    EmployeeService employeeService;
-
-    @Autowired
-    VisitorService visitorService;
-
-    @Autowired
-    FeedService feedService;
 
     @Autowired
     ProductService productService;
 
     @RequestMapping("/index")
     public String start(Model model) {
-        model.addAttribute("products", productService.getProducts());
+        model.addAttribute("products", productService.getAllProducts());
         return "index";
     }
 
+    @RequestMapping("/index/cart/add={id}_{amount}")
+    public String addToCart(Model model, @PathVariable("id") Integer id, @PathVariable("amount") Integer amount) {
+        System.out.println("Adding to cart...");
+        return start(model);
+    }
+    @RequestMapping("/index/cart/remove={id}_{amount}")
+    public String removeFromCart(Model model, @PathVariable("id") Integer id, @PathVariable("amount") Integer amount) {
+        System.out.println("Removing from cart...");
+        return start(model);
+    }
+
     @RequestMapping("/contact")
-    public String showAnimals(Model model) {
-        model.addAttribute("animals", animalService.getAllAnimals());
+    public String showContact(Model model) {
         return "contact";
     }
 
     @RequestMapping("/myPages")
-    public String showEmployees(Model model) {
-        model.addAttribute("employees", employeeService.getEmployees());
+    public String showMyPages(Model model) {
         return "myPages";
     }
 
     @RequestMapping("/shoppingHistory")
-    public String showFeed(Model model) {
-        model.addAttribute("feedlist", feedService.getFeed());
+    public String showShoppingHistory(Model model) {
         return "shoppingHistory";
     }
 }
