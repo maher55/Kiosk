@@ -1,6 +1,12 @@
-package se.kioskByggarna.kiosk.models;
+package se.kioskByggarna.kiosk.models.dto;
 
-public class Customer {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customers")
+public class CustomerDTO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
@@ -38,11 +44,13 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Customer(Integer id, String name, String email, String phoneNumber) {
+    public CustomerDTO(Integer id, String name, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
+    public CustomerDTO() {
+    }
 }

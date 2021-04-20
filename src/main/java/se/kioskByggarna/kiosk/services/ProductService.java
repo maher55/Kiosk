@@ -17,32 +17,7 @@ public class ProductService {
     public ProductService(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
-/*
-    public List<Product> getProducts() {
-        List<Product> productList = new ArrayList<>();
-        productList.add(new Product(1, "Banan",
-                ProductType.FRUIT, "9.99", "SEK",
-                "/images/banana.jpg",
-                "Try one. It's great!"));
-        productList.add(new Product(2, "Potatis",
-                ProductType.VEGETABLE, "4.00", "SEK",
-                "/images/potatoe.jpg",
-                "Try one. It's great!"));
-        productList.add(new Product(3, "Croissant",
-                ProductType.PANTRY, "12.00", "SEK",
-                "/images/croissant.jpg",
-                "Try one. It's great!"));
-        productList.add(new Product(4, "Camembert",
-                ProductType.DAIRY, "79.45", "SEK",
-                "/images/camembert.jpg",
-                "Try one. It's great!"));
-        productList.add(new Product(5, "Lax",
-                ProductType.FISH, "65.00", "SEK",
-                "/images/salmon.jpg",
-                "Try one. It's great!"));
-        return productList;
-    }
-*/
+
     public List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
         for (ProductDTO productDTO : productDAO.getAllProducts()) {
@@ -73,7 +48,8 @@ public class ProductService {
                 productDTO.getPrice(),
                 productDTO.getCurrency(),
                 productDTO.getImg(),
-                productDTO.getDescription());
+                productDTO.getDescription(),
+                productDTO.getInventory());
     }
 
     private ProductDTO mapFromProduct(Product product) {
@@ -84,7 +60,25 @@ public class ProductService {
                 product.getPrice(),
                 product.getCurrency(),
                 product.getImg(),
-                product.getDescription());
+                product.getDescription(),
+                product.getInventory());
+    }
+
+    public Product updateProduct(Product newProduct, Integer id) {
+        Product productToUpdate = getProductById(id);
+        if(productToUpdate != null){
+            productToUpdate.setName(newProduct.getName());
+            productToUpdate.setType(newProduct.getType());
+            productToUpdate.setPrice(newProduct.getPrice());
+            productToUpdate.setCurrency(newProduct.getCurrency());
+            productToUpdate.setImg((newProduct.getImg()));
+            productToUpdate.setDescription(newProduct.getDescription());
+            productToUpdate.setInventory((newProduct.getInventory()));
+        }else{
+            productToUpdate.setId(id);
+        }
+        ProductDTO updatedProduct = productDAO.addProduct((mapFromProduct(productToUpdate)));
+        return mapToProduct(updatedProduct);
     }
 }
 

@@ -2,8 +2,6 @@ package se.kioskByggarna.kiosk.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
-
 public class Product {
 
     public String getPrice() {
@@ -30,6 +28,42 @@ public class Product {
         return currency;
     }
 
+    public Integer getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Integer inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(ProductType type) {
+        this.type = type;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -39,7 +73,8 @@ public class Product {
                    @JsonProperty("price") String price,
                    @JsonProperty("currency") String currency,
                    @JsonProperty("img") String img,
-                   @JsonProperty("description") String description) {
+                   @JsonProperty("description") String description,
+                   @JsonProperty("inventory") Integer inventory){
         this.id = id;
         this.name = name;
         this.type = type;
@@ -47,9 +82,8 @@ public class Product {
         this.currency = currency;
         this.img = img;
         this.description = description;
+        this.inventory = inventory;
     }
-
-
     private Integer id;
     private String name;
     private ProductType type;
@@ -57,5 +91,5 @@ public class Product {
     private String currency;
     private String img;
     private String description;
-
+    private Integer inventory;
 }
