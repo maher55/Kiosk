@@ -1,16 +1,13 @@
 package se.kioskByggarna.kiosk.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.math.BigDecimal;
 
 public class OrderLine {
 
     private Integer orderId;
     private Integer productId;
     private Integer amount;
-    private BigDecimal price;
+    private String price;
 
     public Integer getProductId() {
         return productId;
@@ -28,11 +25,11 @@ public class OrderLine {
         this.amount = amount;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
     public Integer getOrderId() {
@@ -45,7 +42,7 @@ public class OrderLine {
     public OrderLine(@JsonProperty("orderId") Integer orderId,
                      @JsonProperty("productId") Integer productId,
                      @JsonProperty("amount") Integer amount,
-                     @JsonProperty("price") BigDecimal price) {
+                     @JsonProperty("price") String price) {
         this.orderId = orderId;
         this.productId = productId;
         this.amount = amount;
