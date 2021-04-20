@@ -1,27 +1,18 @@
-
 $(function () {
     let $index = $('#index');
+    let $product = $('.products-browser');
 
-    function addProduct(product) {
-        $index.append(`
-         <div class="product-listitem-medium">
-            <img class="product-img-small" src="${product.img}">
-            <tbody>
-            <table>
-                <tr>
-                    <td> Vara:</td>
-                    <td>${product.name}</td>
-                </tr>
-                <tr>
-                    <td> Pris:</td>
-                    <td>${product.price} ${product.currency}</td>
-                </tr>
-            </table>
-            </tbody>
-            <p>Beskrivning: </p>
-            <p>${product.description}</p>
-            <button type="button" name="add-to-cart" value="${product.id}" th:onclick="|@{a}|">Köp</button>
-         </div>`
+    function addProductToBrowser(product) {
+        $product.append(`
+        <div class="product-listitem-medium-container">
+            <div class="product-listitem-medium">
+                <img class="product-img-small" src="${product.img}">
+                <p>${product.name}</p>
+                <p>${product.price} ${product.currency}</p>
+                <p>${product.description}</p>
+                <button type="button" name="Add to cart" value="${product.id}" class="add-to-cart-button">Köp</button>
+            </div>
+        </div>`
         )
     }
 
@@ -31,12 +22,32 @@ $(function () {
         success: function (products) {
             console.log('success', products);
             $.each(products, function (i, product) {
-                addProduct(product);
+                addProductToBrowser(product);
             })
         },
-        error(){
+        error() {
             alert("No products found.");
         }
+    })
+
+    function addProductToCart() {
+
+    }
+
+    $($product).on('click', '.add-to-cart-button', function () {
+        let productId = $(this).val();
+        $.ajax({
+            type: 'GET',
+            url: 'api/products/' + productId,
+            success: function (product) {
+                console.log('success', product);
+
+            },
+            error() {
+                alert("No products found.");
+            }
+        })
+
     })
 
 })
