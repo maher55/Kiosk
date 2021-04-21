@@ -42,5 +42,3 @@ public class OrderLineController {
         return orderLineService.updateOrderLine(newOrderLine, new OrderLineId(orderId, productId));
     }
 }
-
-

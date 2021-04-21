@@ -5,7 +5,7 @@
     <title>Köphistorik</title>
 
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,21 +20,6 @@
     <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
     <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
 </div>
-    <h1>Djurfoder!</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Typ av djurmat</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="feed : ${feedlist}">
-            <td th:text="${feed.type}"></td>
-        </tr>
-        </tbody>
-    </table>
-    <a th:href="@{index}">Tillbaka till Startsidan</a>
 
 </body>
 </html>

@@ -46,7 +46,7 @@ public class ProductService {
                 productDTO.getName(),
                 productDTO.getType(),
                 productDTO.getPrice(),
-                productDTO.getCurrency(),
+                productDTO.getUnit(),
                 productDTO.getImg(),
                 productDTO.getDescription(),
                 productDTO.getInventory());
@@ -58,7 +58,7 @@ public class ProductService {
                 product.getName(),
                 product.getType(),
                 product.getPrice(),
-                product.getCurrency(),
+                product.getUnit(),
                 product.getImg(),
                 product.getDescription(),
                 product.getInventory());
@@ -70,7 +70,7 @@ public class ProductService {
             productToUpdate.setName(newProduct.getName());
             productToUpdate.setType(newProduct.getType());
             productToUpdate.setPrice(newProduct.getPrice());
-            productToUpdate.setCurrency(newProduct.getCurrency());
+            productToUpdate.setUnit(newProduct.getUnit());
             productToUpdate.setImg((newProduct.getImg()));
             productToUpdate.setDescription(newProduct.getDescription());
             productToUpdate.setInventory((newProduct.getInventory()));

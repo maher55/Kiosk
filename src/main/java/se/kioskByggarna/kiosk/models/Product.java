@@ -24,8 +24,8 @@ public class Product {
         return name;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getUnit() {
+        return unit;
     }
 
     public Integer getInventory() {
@@ -52,8 +52,8 @@ public class Product {
         this.price = price;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public void setImg(String img) {
@@ -71,7 +71,7 @@ public class Product {
                    @JsonProperty("name") String name,
                    @JsonProperty("type") ProductType type,
                    @JsonProperty("price") String price,
-                   @JsonProperty("currency") String currency,
+                   @JsonProperty("unit") String unit,
                    @JsonProperty("img") String img,
                    @JsonProperty("description") String description,
                    @JsonProperty("inventory") Integer inventory){
@@ -79,7 +79,7 @@ public class Product {
         this.name = name;
         this.type = type;
         this.price = price;
-        this.currency = currency;
+        this.unit = unit;
         this.img = img;
         this.description = description;
         this.inventory = inventory;
@@ -88,7 +88,7 @@ public class Product {
     private String name;
     private ProductType type;
     private String price;
-    private String currency;
+    private String unit;
     private String img;
     private String description;
     private Integer inventory;

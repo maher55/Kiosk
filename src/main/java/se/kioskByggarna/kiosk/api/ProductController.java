@@ -33,7 +33,7 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public Product updateProduct(@PathVariable("id") Integer id,
                                  @RequestBody Product newProduct) {
     return productService.updateProduct(newProduct, id);
