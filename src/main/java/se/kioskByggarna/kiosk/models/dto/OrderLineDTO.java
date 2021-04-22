@@ -39,12 +39,16 @@ public class OrderLineDTO {
         this.id = id;
     }
 
-    public OrderLineDTO(OrderLineId orderLineId, Integer amount, String price) {
+    public OrderLineDTO(OrderLineId id, Integer amount, String price) {
         this.id = id;
         this.amount = amount;
         this.price = price;
     }
-
+    public OrderLineDTO(Integer orderId, Integer productId, Integer amount, String price) {
+        this.id = new OrderLineId(orderId,productId);
+        this.amount = amount;
+        this.price = price;
+    }
     public OrderLineDTO() {
     }
 }

@@ -36,7 +36,10 @@ public class StoreController {
     public String showContact(Model model) {
         return "contact";
     }
-
+    @RequestMapping("/order")
+    public String showOrder(Model model) {
+        return "order";
+    }
     @RequestMapping("/myPages")
     public String showMyPages(Model model) {
         return "myPages";

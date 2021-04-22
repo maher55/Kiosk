@@ -21,12 +21,12 @@ public class OrderLineController {
 
     @GetMapping("/{orderId}_{productId}")
     public OrderLine getOrderLineById(@PathVariable("orderId") Integer orderId, @PathVariable("productId") Integer productId) {
-
         return orderLineService.getOrderLineById(new OrderLineId(orderId, productId));
     }
 
     @PostMapping
     public void addOrderLine(@RequestBody OrderLine orderLine) {
+        System.out.println("___________________" + orderLine.getPrice().getClass());
         orderLineService.addOrderLine(orderLine);
     }
 
@@ -35,7 +35,7 @@ public class OrderLineController {
         orderLineService.deleteOrderLine(new OrderLineId(orderId, productId));
     }
 
-    @PostMapping("/{orderId}_{productId}")
+    @PutMapping("/{orderId}_{productId}")
     public OrderLine updateOrderLine(@PathVariable("orderId") Integer orderId,
                                      @PathVariable("productId") Integer productId,
                                      @RequestBody OrderLine newOrderLine) {

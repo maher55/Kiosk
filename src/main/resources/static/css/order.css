@@ -1,0 +1,44 @@
+/*Order*/
+.form{
+    margin: auto;
+    width: 50%;
+    height: 92vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.form span{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+.form button{
+    width: 30%;
+    margin: 0 auto;
+    font-size: 140%;
+}
+.page-content-container {
+    margin-top: 8vh;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.top-nav {
+    z-index: 3;
+    background: darkred;
+    padding: 1%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.top-nav a{
+    color: white !important;
+    border: white 2px ridge;
+    max-width: fit-content;
+    font-size: 2.1vh;
+}

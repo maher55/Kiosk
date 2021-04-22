@@ -10,18 +10,20 @@ import java.util.Optional;
 public class ProductDAO {
     private final ProductRepository repository;
 
-    public ProductDAO(ProductRepository repository){
+    public ProductDAO(ProductRepository repository) {
         this.repository = repository;
     }
 
 
-    public ProductDTO addProduct(ProductDTO productDTO){
-    repository.save(productDTO);
-    return productDTO;
+    public ProductDTO addProduct(ProductDTO productDTO) {
+        repository.save(productDTO);
+        return productDTO;
     }
-    public Iterable<ProductDTO>getAllProducts(){
+
+    public Iterable<ProductDTO> getAllProducts() {
         return repository.findAll();
     }
+
     public Optional<ProductDTO> findProductByID(Integer id) {
         return repository.findById(id);
     }

@@ -18,7 +18,12 @@ $(function () {
         "error": function () {
             alert("No products found.");
         }
-    }).then(()=>{buildCartGUI();});
+    }).then(() => {
+        buildCartGUI();
+    });
+    $(".products-browser").on('click', '.buy-button', () => {
+        window.location.href = '/order';
+    })
 
     $($product).on('click', '.add-to-cart-button', function () {
         $('.cart').show();
@@ -32,6 +37,7 @@ $(function () {
             $('.cart').show();
         }
     })
+
     function addProductToCart(product, amount) {
         let cartItem = increaseCartItem(product, amount);
         updateCartWithProduct(product, cartItem.amount)
@@ -61,7 +67,7 @@ $(function () {
         $product.append(`
         <div class="product-listitem-medium-container">
             <div class="product-listitem-medium">
-                <img class="product-img-small" src="${product.img}">
+                <img class="product-img-small" src="${product.img}" alt="${product.name}">
                 <p>${product.name}</p>
                 <p>${product.price} Kr/${product.unit}</p>
                 <p>${product.description}</p>
@@ -127,6 +133,7 @@ $(function () {
             let cartItemId = $(this).attr('id');
             clearCartItemInCart(parseInt(cartItemId));
             $(this.closest('li')).remove();
+            updateCartTotalCost();
 
         });
         loadLocalCartData();
@@ -134,10 +141,10 @@ $(function () {
 
     function loadLocalCartData() {
         let cart = getCart();
-        console.log(productsDictionary);
-        if(cart !== undefined){
+        if (cart !== undefined) {
             (getCart()).forEach((cartItem) => updateCartWithProduct(productsDictionary[parseInt(cartItem.id)], cartItem.amount))
-        updateCartTotalCost();}
+            updateCartTotalCost();
+        }
     }
 
 })

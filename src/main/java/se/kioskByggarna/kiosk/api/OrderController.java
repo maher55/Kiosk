@@ -34,7 +34,7 @@ public class OrderController {
             orderService.deleteOrder(id);
         }
 
-        @PostMapping("/{id}")
+        @PutMapping("/{id}")
         public Order updateOrder(@PathVariable("id") Integer id,
                                      @RequestBody Order newOrder) {
             return orderService.updateOrder(newOrder, id);
