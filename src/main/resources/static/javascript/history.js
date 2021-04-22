@@ -1,34 +1,62 @@
 $(function () {
     let $history = $('#history');
-    $.ajax({
-        "type": 'GET',
-        "url": 'api/orders/',
-        "success": function (orders) {
-            console.log('success', orders);
-            $.each(orders,  function (i, order) {
-                 addOrder(order, i)
-                    console.log("CustomerId: " + order.customerId);
-                     addCustomer(order.customerId, i);
-            })
-        },
-        "error": function () {
-            alert("No orders found.");
-        }
-    })
 
+    initPage();
+    async function initPage(){
+        let orders = await getOrders();
+        orders.forEach((order)=>{
+            console.log(order.id);
+            addOrder(order, order.id)
+            addCustomer(order.customerId, order.id)
+            addOrderDeleteButton(order.id);
+        })
+        listenToOrderDeleteButtons();
+    }
+function listenToOrderDeleteButtons(){
+    $history.on('click', '.order-delete-button', function () {
+        let orderId = $(this).attr('id');
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/orders/' + orderId,
+            success: function () {
+                $(`#${orderId}`).remove();
+                $(this).html('');
+            }
+        });
+
+    });
+    }
+    async function getOrders(){
+        let orders = [];
+        await $.ajax({
+            "type": 'GET',
+            "url": 'api/orders/',
+            "success": function (ordersFromDb) {
+                orders = ordersFromDb;
+            },
+            "error": function () {
+                alert("No orders found.");
+            }
+        })
+        return orders;
+    }
     async function addOrder(order, id) {
         $history.append(`
         <div id="${id}">
-    <p>Ordernummer: ${order.id} <br>Datum: ${order.finalisedByDate}</p>
+            <p>Ordernummer: ${order.id} <br>Datum: ${order.finalisedByDate}</p>
         </div>`
         )
     }
+    function addOrderDeleteButton(orderId){
+        $(`#${orderId}`).append(`
+        <div id="${orderId}">
+            <button type="submit" id="${orderId}" class="order-delete-button">Ta bort order</button>
+        </div>`)
+    }
 
     async function addCustomer(customerId, id) {
-
          let customer = await getCustomer(customerId);
-            $(`#${id}`).append(`
-            <p>     -${customer.name} ${customer.email}</p><br><br>
+            $(`#${id}>p`).after(`<p>${customer.name} ${customer.email}</p>
             `)
     }
 
@@ -38,7 +66,6 @@ $(function () {
             "type": 'GET',
             "url": 'api/customers/',
             "success": function (customers) {
-                console.log('success', customers);
                 $.each(customers, function (i, tmpCustomer) {
                     if (tmpCustomer.id === customerId) customer = tmpCustomer;
                 })
@@ -49,21 +76,22 @@ $(function () {
         })
         return customer;
     }
-
-    function addOrderline() {
-        $.ajax({
-            "type": 'GET',
-            "url": 'api/orders/',
-            "success": function (orders) {
-                console.log('success', orders);
-                $.each(orders, function (i, order) {
-                    addOrder(order);
-                })
-            },
-            "error": function () {
-                alert("No products found.");
-            }
-        })
+function getOrderLines(){
+    $.ajax({
+        "type": 'GET',
+        "url": 'api/orderLines/',
+        "success": function (orderLines) {
+            $.each(orders, function (i, order) {
+                addOrder(order);
+            })
+        },
+        "error": function () {
+            alert("No products found.");
+        }
+    })
+}
+    function addOrderlines(orderId) {
+       let orderLine = getOrderLine();
     }
 
 })
