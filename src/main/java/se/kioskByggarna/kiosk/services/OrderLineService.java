@@ -51,7 +51,6 @@ public class OrderLineService {
         return new OrderLineDTO(
                 orderLine.getOrderId(),
                 orderLine.getProductId(),
-                /*new OrderLineId(orderLine.getOrderId(),orderLine.getProductId())*/
                 orderLine.getAmount(),
                 orderLine.getPrice());
     }

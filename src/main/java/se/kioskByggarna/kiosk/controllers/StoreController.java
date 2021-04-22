@@ -23,12 +23,10 @@ public class StoreController {
 
     @RequestMapping("/index/cart/add={id}_{amount}")
     public String addToCart(Model model, @PathVariable("id") Integer id, @PathVariable("amount") Integer amount) {
-        System.out.println("Adding to cart...");
         return start(model);
     }
     @RequestMapping("/index/cart/remove={id}_{amount}")
     public String removeFromCart(Model model, @PathVariable("id") Integer id, @PathVariable("amount") Integer amount) {
-        System.out.println("Removing from cart...");
         return start(model);
     }
 

@@ -26,7 +26,6 @@ public class OrderLineController {
 
     @PostMapping
     public void addOrderLine(@RequestBody OrderLine orderLine) {
-        System.out.println("___________________" + orderLine.getPrice().getClass());
         orderLineService.addOrderLine(orderLine);
     }
 

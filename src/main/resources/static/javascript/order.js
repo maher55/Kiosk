@@ -1,5 +1,6 @@
 $(function () {
-    let $order = $('#order'), customerID;
+    let $order = $('#order');
+
     $('#finalise').on('click', () => {
          registerData().then(()=>{
              localStorage.removeItem("cart")
@@ -8,17 +9,20 @@ $(function () {
     })
     async function registerData(){
         let customerId = await getCurrentCustomer();
+
         let productDictionary = await getProductDictionary();
-        let orderId = await buildOrder(customerId, "2021-04-22");
+        let orderId = await buildOrder(customerId, Date());
         JSON.parse(localStorage.getItem("cart")).forEach((cartItem)=>{
             let price = productDictionary[parseInt(cartItem.id)].price;
-            console.log(price);
             buildOrderLines(
                 parseInt(orderId),
                 parseInt(cartItem.id),
                 parseInt(cartItem.amount),
                 (cartItem.amount*parseInt(price)).toString())
         })
+        $order.html(`<div>
+<h4> Tack för beställningen. Välkommen in för att hämta din färdigplockade matkasse!</h4> 
+</div>`)
 
     }
     async function getProductDictionary(){
@@ -68,19 +72,18 @@ $(function () {
             "type": 'GET',
             "url": 'api/customers/',
             "success":  (customers)=> {
-
                  $.each(customers, (i, customer) => {
-                if(customer.email === $('#email').val()){
+                if(customer.email == $('#email').val()){
                     id = customer.id;
+                    return;
                 }})
-                if(id === undefined){
-                    buildCustomer();
-                    return getCurrentCustomer()};//TODO OBS kan fastna i loop vid fel
             },
             "error": function () {
-
             }
         })
+        if(id == undefined){
+            await buildCustomer();
+            return getCurrentCustomer()};//TODO OBS kan fastna i loop vid fel
         return id;
     }
     async function buildCustomer(){

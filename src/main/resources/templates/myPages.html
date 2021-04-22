@@ -2,23 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Mina Sidor</title>
+    <title>Title</title>
 
+    <link rel="stylesheet" type="text/css" href="/css/order.css">
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script rel="script" type="text/javascript" src="/webjars/jquery/3.1.1/jquery.js"></script>
+    <script rel="script" type="text/javascript" src="/javascript/history.js"></script>
 </head>
 <body class="text-center">
-<div class="container">
+
+<div class="top-nav">
     <a class="btn btn-outline-primary" th:href="@{index}">Handla</a>
     <a class="btn btn-outline-primary" th:href="@{myPages}">Mina Sidor</a>
     <a class="btn btn-outline-primary" th:href="@{shoppingHistory}">Köphistorik</a>
     <a class="btn btn-outline-primary" th:href="@{contact}">Kontakt</a>
-    <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
-    <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
+    <a class="btn btn-outline-primary login-button">Logga ut</a>
 </div>
 
     <a th:href="@{index}">Tillbaka till Startsidan</a>
