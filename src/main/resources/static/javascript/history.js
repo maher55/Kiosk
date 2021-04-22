@@ -25,11 +25,11 @@ $(function () {
     }
 
     async function addCustomer(customerId, id) {
-         getCustomer(customerId).then((customer) => {
+
+         let customer = await getCustomer(customerId);
             $(`#${id}`).append(`
             <p>     -${customer.name} ${customer.email}</p><br><br>
             `)
-        });
     }
 
     async function getCustomer(customerId) {
@@ -40,7 +40,7 @@ $(function () {
             "success": function (customers) {
                 console.log('success', customers);
                 $.each(customers, function (i, tmpCustomer) {
-                    if (tmpCustomer.id = customerId) customer = tmpCustomer;
+                    if (tmpCustomer.id === customerId) customer = tmpCustomer;
                 })
             },
             "error": function () {

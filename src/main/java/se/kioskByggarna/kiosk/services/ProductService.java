@@ -26,8 +26,8 @@ public class ProductService {
         return products;
     }
 
-    public void addProduct(Product product) {
-        productDAO.addProduct(mapFromProduct(product));
+    public Integer addProduct(Product product) {
+        return productDAO.addProduct(mapFromProduct(product)).getId();
     }
 
     public Product getProductById(Integer id) {

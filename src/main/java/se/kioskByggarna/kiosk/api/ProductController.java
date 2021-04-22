@@ -24,8 +24,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public void addProduct(@RequestBody Product product) {
-        productService.addProduct(product);
+    public Integer addProduct(@RequestBody Product product) {
+        return productService.addProduct(product);
     }
 
     @DeleteMapping("/{id}")
@@ -39,5 +39,3 @@ public class ProductController {
     return productService.updateProduct(newProduct, id);
     }
 }
-
-

@@ -82,11 +82,12 @@ $(function () {
             }
         })
         if(id == undefined){
-            await buildCustomer();
-            return getCurrentCustomer()};//TODO OBS kan fastna i loop vid fel
+            id =  await buildCustomer();
+        }
         return id;
     }
     async function buildCustomer(){
+        let newCustomerId;
         let customer = {
             "name":$('#name').val(),
             "email":$('#email').val(),
@@ -100,13 +101,14 @@ $(function () {
                 'Content-Type' : 'application/json'
             },
             data: JSON.stringify(customer),
-            success:  function () {
-                console.log(customer + ' registered in db.')
+            "success":  function (id) {
+                console.log(id + ' registered in db.')
+                newCustomerId = id;
             },
             error: function () {
-
             }
         });
+        return newCustomerId
     }
     async function buildOrder(customerId, date){
         let order = {

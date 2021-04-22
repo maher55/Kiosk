@@ -18,8 +18,8 @@ public class OrderService {
         this.orderDAO = orderDAO;
     }
 
-    public void addOrder(Order order) {
-        orderDAO.addOrder(mapFromOrder(order));
+    public Integer addOrder(Order order) {
+        return orderDAO.addOrder(mapFromOrder(order)).getId();
     }
 
     public Order getOrderById(Integer id) {

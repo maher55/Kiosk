@@ -25,8 +25,8 @@ public class OrderController {
         }
 
         @PostMapping
-        public void addOrder(@RequestBody Order order) {
-            orderService.addOrder(order);
+        public Integer addOrder(@RequestBody Order order) {
+            return orderService.addOrder(order);
         }
 
         @DeleteMapping("/{id}")
