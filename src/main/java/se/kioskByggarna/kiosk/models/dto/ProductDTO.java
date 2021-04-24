@@ -17,6 +17,9 @@ public class ProductDTO {
     private String img;
     private String description;
 
+    public ProductDTO(Integer id, String name, ProductType type, String price, String unit, String img, String description, Integer inventory) {
+    }
+
     public Integer getInventory() {
         return inventory;
     }
@@ -51,7 +54,7 @@ public class ProductDTO {
         return description;
     }
 
-    public ProductDTO(Integer id, String name, ProductType type, String price, String unit, String img, String description, Integer inventory) {
+    public ProductDTO(Integer id, String name, String price) {
         this.id = id;
         this.name = name;
         this.type = type;

@@ -44,12 +44,8 @@ public class ProductService {
     private Product mapToProduct(ProductDTO productDTO) {
         return new Product(productDTO.getId(),
                 productDTO.getName(),
-                productDTO.getType(),
-                productDTO.getPrice(),
-                productDTO.getUnit(),
-                productDTO.getImg(),
-                productDTO.getDescription(),
-                productDTO.getInventory());
+                productDTO.getPrice()
+        );
     }
 
     private ProductDTO mapFromProduct(Product product) {

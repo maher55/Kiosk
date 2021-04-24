@@ -69,12 +69,7 @@ public class Product {
     }
     public Product(@JsonProperty("id") Integer id,
                    @JsonProperty("name") String name,
-                   @JsonProperty("type") ProductType type,
-                   @JsonProperty("price") String price,
-                   @JsonProperty("unit") String unit,
-                   @JsonProperty("img") String img,
-                   @JsonProperty("description") String description,
-                   @JsonProperty("inventory") Integer inventory){
+                   @JsonProperty("price") String price){
         this.id = id;
         this.name = name;
         this.type = type;
