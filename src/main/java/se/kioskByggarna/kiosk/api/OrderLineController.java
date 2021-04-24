@@ -21,7 +21,6 @@ public class OrderLineController {
 
     @GetMapping("/{orderId}_{productId}")
     public OrderLine getOrderLineById(@PathVariable("orderId") Integer orderId, @PathVariable("productId") Integer productId) {
-
         return orderLineService.getOrderLineById(new OrderLineId(orderId, productId));
     }
 
@@ -35,12 +34,10 @@ public class OrderLineController {
         orderLineService.deleteOrderLine(new OrderLineId(orderId, productId));
     }
 
-    @PostMapping("/{orderId}_{productId}")
+    @PutMapping("/{orderId}_{productId}")
     public OrderLine updateOrderLine(@PathVariable("orderId") Integer orderId,
                                      @PathVariable("productId") Integer productId,
                                      @RequestBody OrderLine newOrderLine) {
         return orderLineService.updateOrderLine(newOrderLine, new OrderLineId(orderId, productId));
     }
 }
-
-

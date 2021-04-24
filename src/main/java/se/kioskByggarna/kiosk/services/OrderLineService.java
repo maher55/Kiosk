@@ -3,13 +3,9 @@ package se.kioskByggarna.kiosk.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.kioskByggarna.kiosk.dao.OrderLineDAO;
-import se.kioskByggarna.kiosk.models.Order;
 import se.kioskByggarna.kiosk.models.OrderLine;
 import se.kioskByggarna.kiosk.models.OrderLineId;
-import se.kioskByggarna.kiosk.models.Product;
-import se.kioskByggarna.kiosk.models.dto.OrderDTO;
 import se.kioskByggarna.kiosk.models.dto.OrderLineDTO;
-import se.kioskByggarna.kiosk.models.dto.ProductDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +49,8 @@ public class OrderLineService {
 
     private OrderLineDTO mapFromOrderLine(OrderLine orderLine) {
         return new OrderLineDTO(
-                new OrderLineId(orderLine.getOrderId(),orderLine.getProductId()),
+                orderLine.getOrderId(),
+                orderLine.getProductId(),
                 orderLine.getAmount(),
                 orderLine.getPrice());
     }

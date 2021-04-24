@@ -25,8 +25,8 @@ public class CustomerController {
     }
 
     @PostMapping
-    public void addCustomer(@RequestBody Customer customer) {
-        customerService.addCustomer(customer);
+    public Integer addCustomer(@RequestBody Customer customer) {
+        return customerService.addCustomer(customer);
     }
 
     @DeleteMapping("/{id}")
@@ -34,7 +34,7 @@ public class CustomerController {
         customerService.deleteCustomer(id);
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public Customer updateCustomer(@PathVariable("id") Integer id,
                                    @RequestBody Customer newCustomer) {
         return customerService.updateCustomer(newCustomer, id);

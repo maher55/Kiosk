@@ -1,12 +1,10 @@
 package se.kioskByggarna.kiosk.models.dto;
 
 import se.kioskByggarna.kiosk.models.OrderLineId;
-import se.kioskByggarna.kiosk.models.Product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "orderLines")
@@ -14,7 +12,7 @@ public class OrderLineDTO {
     @Id
     private OrderLineId id;
     private Integer amount;
-    private BigDecimal price;
+    private String price;
 
 
     public Integer getAmount() {
@@ -25,11 +23,11 @@ public class OrderLineDTO {
         this.amount = amount;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -41,12 +39,16 @@ public class OrderLineDTO {
         this.id = id;
     }
 
-    public OrderLineDTO(OrderLineId orderLineId, Integer amount, BigDecimal price) {
+    public OrderLineDTO(OrderLineId id, Integer amount, String price) {
         this.id = id;
         this.amount = amount;
         this.price = price;
     }
-
+    public OrderLineDTO(Integer orderId, Integer productId, Integer amount, String price) {
+        this.id = new OrderLineId(orderId,productId);
+        this.amount = amount;
+        this.price = price;
+    }
     public OrderLineDTO() {
     }
 }

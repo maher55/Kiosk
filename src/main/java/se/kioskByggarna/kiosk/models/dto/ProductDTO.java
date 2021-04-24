@@ -13,7 +13,7 @@ public class ProductDTO {
     private String name;
     private ProductType type;
     private String price;
-    private String currency;
+    private String unit;
     private String img;
     private String description;
 
@@ -39,8 +39,8 @@ public class ProductDTO {
         return price;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getUnit() {
+        return unit;
     }
 
     public String getImg() {
@@ -51,12 +51,12 @@ public class ProductDTO {
         return description;
     }
 
-    public ProductDTO(Integer id, String name, ProductType type, String price, String currency, String img, String description, Integer inventory) {
+    public ProductDTO(Integer id, String name, ProductType type, String price, String unit, String img, String description, Integer inventory) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
-        this.currency = currency;
+        this.unit = unit;
         this.img = img;
         this.description = description;
         this.inventory = inventory;

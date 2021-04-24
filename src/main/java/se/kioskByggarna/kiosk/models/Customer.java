@@ -1,5 +1,7 @@
 package se.kioskByggarna.kiosk.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Customer {
     private Integer id;
     private String name;
@@ -38,7 +40,10 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Customer(Integer id, String name, String email, String phoneNumber) {
+    public Customer(@JsonProperty("id") Integer id,
+                    @JsonProperty("name") String name,
+                    @JsonProperty("email") String email,
+                    @JsonProperty("phoneNumber") String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;

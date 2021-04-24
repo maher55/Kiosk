@@ -20,8 +20,9 @@ public class CustomerService {
         this.customerDAO = customerDAO;
     }
 
-    public void addCustomer(Customer customer) {
-        customerDAO.addCustomer(mapFromCustomer(customer));
+    public Integer addCustomer(Customer customer) {
+       return customerDAO.addCustomer((mapFromCustomer(customer))).getId();
+
     }
 
     public Customer getCustomerById(Integer id) {

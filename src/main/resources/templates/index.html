@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Startsida</title>
 
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,11 +20,11 @@
     <a class="btn btn-outline-primary" th:href="@{myPages}">Mina Sidor</a>
     <a class="btn btn-outline-primary" th:href="@{shoppingHistory}">Köphistorik</a>
     <a class="btn btn-outline-primary" th:href="@{contact}">Kontakt</a>
-    <a class="btn btn-outline-primary login" href="#contact">Logga ut</a>
-    <a class="btn btn-outline-primary cart" href="#cart"><i class="fa fa-shopping-cart"></i></a>
+    <a class="btn btn-outline-primary login-button">Logga ut</a>
+    <a class="btn btn-outline-primary cart-button"><i class="fa fa-shopping-cart"></i></a>
 </div>
-<div class="page-content-container">
-    <div class="products-browser" id="index">
+<div class="page-content-container" id="index">
+    <div class="products-browser">
 
     </div>
 </div>

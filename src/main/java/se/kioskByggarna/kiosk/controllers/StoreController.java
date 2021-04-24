@@ -17,26 +17,17 @@ public class StoreController {
 
     @RequestMapping("/index")
     public String start(Model model) {
-        model.addAttribute("products", productService.getAllProducts());
         return "index";
-    }
-
-    @RequestMapping("/index/cart/add={id}_{amount}")
-    public String addToCart(Model model, @PathVariable("id") Integer id, @PathVariable("amount") Integer amount) {
-        System.out.println("Adding to cart...");
-        return start(model);
-    }
-    @RequestMapping("/index/cart/remove={id}_{amount}")
-    public String removeFromCart(Model model, @PathVariable("id") Integer id, @PathVariable("amount") Integer amount) {
-        System.out.println("Removing from cart...");
-        return start(model);
     }
 
     @RequestMapping("/contact")
     public String showContact(Model model) {
         return "contact";
     }
-
+    @RequestMapping("/order")
+    public String showOrder(Model model) {
+        return "order";
+    }
     @RequestMapping("/myPages")
     public String showMyPages(Model model) {
         return "myPages";
