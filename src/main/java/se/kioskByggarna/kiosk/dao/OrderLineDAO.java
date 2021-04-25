@@ -1,7 +1,6 @@
 package se.kioskByggarna.kiosk.dao;
 
 import org.springframework.stereotype.Repository;
-import se.kioskByggarna.kiosk.models.OrderLineId;
 import se.kioskByggarna.kiosk.models.dto.OrderLineDTO;
 import se.kioskByggarna.kiosk.repository.OrderLineRepository;
 

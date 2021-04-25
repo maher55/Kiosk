@@ -1,8 +1,6 @@
 package se.kioskByggarna.kiosk.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.repository.CrudRepository;
-import se.kioskByggarna.kiosk.models.dto.ProductDTO;
 import java.util.HashSet;
 import java.util.Set;
 
