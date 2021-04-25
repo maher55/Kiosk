@@ -11,23 +11,32 @@ import java.util.Optional;
 public class OrderLineDAO {
     private final OrderLineRepository repository;
 
-    public OrderLineDAO(OrderLineRepository repository){
+    public OrderLineDAO(OrderLineRepository repository) {
         this.repository = repository;
     }
 
 
-    public OrderLineDTO addOrderLine(OrderLineDTO orderLineDTO){
+    public OrderLineDTO addOrderLine(OrderLineDTO orderLineDTO) {
         repository.save(orderLineDTO);
         return orderLineDTO;
     }
-    public Iterable<OrderLineDTO>getAllOrderLines(){
-        return repository.findAll();
-    }
-    public Optional<OrderLineDTO> findOrderLineById(OrderLineId id) {
+
+    public Iterable<OrderLineDTO> getAllOrderLines() {
+        return repository.findAll(); }
+
+    public Optional<OrderLineDTO> findOrderLineById(Integer id) {
         return repository.findById(id);
     }
 
-    public void deleteOrderLine(OrderLineId id) {
+    public Iterable<OrderLineDTO> findOrderLineByOrderId(Integer orderId) {
+        return repository.findByOrderId(orderId);
+    }
+
+    public void deleteOrderLine(Integer id) {
         repository.deleteById(id);
+    }
+
+    public void deleteOrderLinesByOrderId(Integer orderId) {
+        repository.deleteByOrderId(orderId);
     }
 }

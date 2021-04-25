@@ -1,19 +1,34 @@
 package se.kioskByggarna.kiosk.models.dto;
 
-import se.kioskByggarna.kiosk.models.OrderLineId;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "orderLines")
 public class OrderLineDTO {
     @Id
-    private OrderLineId id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Integer orderId;
+    private Integer productId;
     private Integer amount;
     private String price;
 
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 
     public Integer getAmount() {
         return amount;
@@ -31,24 +46,22 @@ public class OrderLineDTO {
         this.price = price;
     }
 
-    public OrderLineId getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(OrderLineId id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public OrderLineDTO(OrderLineId id, Integer amount, String price) {
+    public OrderLineDTO(Integer id,Integer orderId, Integer productId, Integer amount, String price) {
         this.id = id;
+        this.orderId = orderId;
+        this.productId = productId;
         this.amount = amount;
         this.price = price;
     }
-    public OrderLineDTO(Integer orderId, Integer productId, Integer amount, String price) {
-        this.id = new OrderLineId(orderId,productId);
-        this.amount = amount;
-        this.price = price;
-    }
+
     public OrderLineDTO() {
     }
 }
