@@ -80,11 +80,6 @@ class CustomerServiceTest {
     }
 
     @Test
-    void deleteCustomer_ShouldInvokeDeleteCustomer() {
-        customerService.deleteCustomer(1);
-        Mockito.verify(customerDAO,Mockito.times(1)).deleteCustomer(1);
-    }
-    @Test
     void deleteCustomer_ShouldNotInvokeAddCustomer() {
         customerService.deleteCustomer(1);
         Mockito.verify(customerDAO, Mockito.times(0)).addCustomer(new CustomerDTO(null, null, null,null));
