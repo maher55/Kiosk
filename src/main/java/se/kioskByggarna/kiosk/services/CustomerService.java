@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.kioskByggarna.kiosk.dao.CustomerDAO;
 import se.kioskByggarna.kiosk.models.Customer;
-import se.kioskByggarna.kiosk.models.Customer;
-import se.kioskByggarna.kiosk.models.dto.CustomerDTO;
 import se.kioskByggarna.kiosk.models.dto.CustomerDTO;
 
 import java.util.ArrayList;
@@ -20,8 +18,9 @@ public class CustomerService {
         this.customerDAO = customerDAO;
     }
 
-    public Integer addCustomer(Customer customer) {
-       return customerDAO.addCustomer((mapFromCustomer(customer))).getId();
+    public Customer addCustomer(Customer customer) {
+        CustomerDTO newCustomerDTO = customerDAO.addCustomer((mapFromCustomer(customer)));
+       return mapToCustomer(newCustomerDTO);
 
     }
 

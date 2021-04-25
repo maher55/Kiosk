@@ -26,7 +26,7 @@ public class CustomerController {
 
     @PostMapping
     public Integer addCustomer(@RequestBody Customer customer) {
-        return customerService.addCustomer(customer);
+        return customerService.addCustomer(customer).getId();
     }
 
     @DeleteMapping("/{id}")
