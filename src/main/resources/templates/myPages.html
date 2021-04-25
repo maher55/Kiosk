@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script rel="script" type="text/javascript" src="/webjars/jquery/3.1.1/jquery.js"></script>
-    <script rel="script" type="text/javascript" src="/javascript/history.js"></script>
+    <script rel="script" type="text/javascript" src="/javascript/myPages.js"></script>
 </head>
 <body class="text-center">
 
@@ -22,7 +22,15 @@
     <a class="btn btn-outline-primary login-button">Logga ut</a>
 </div>
 
-    <a th:href="@{index}">Tillbaka till Startsidan</a>
+<div class="page-content-container" id="myPages">
+    <div class="form">
+        <h3>Ändra dina uppgifter</h3>
+        <span><label for="name">Namn: </label><input type="text" id="name"></span>
+        <span><label for="email">Epostaddress: </label><input type="text" id="email"></span>
+        <span><label for="phoneNumber">Telefonnummer: </label><input type="text" id="phoneNumber"></span>
+        <button type="submit" class="btn btn-info" id="finalise">Ändra</button>
+    </div>
+</div>
 
 </body>
 </html>

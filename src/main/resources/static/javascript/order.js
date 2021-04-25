@@ -20,7 +20,8 @@ $(function () {
                 parseInt(cartItem.amount),
                 (cartItem.amount * parseInt(price)).toString())
         })
-        buildConfirmationScreen();
+            buildConfirmationScreen();
+            localStorage.setItem("currentCustomer", customerId);
     }
 
     function buildConfirmationScreen() {
